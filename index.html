@@ -10,7 +10,7 @@
     margin: 0;
     font-family: 'Georgia', serif;
     color: #2f2f2f;
-    background-color: #fdf6e3;
+    background-color: #E8F1F2;
     line-height: 1.6;
   }
 
@@ -18,26 +18,29 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: #fff;
-    border: 1px solid #d8cfc4;
+    background-color: #e6e2d2; /* parchment tint */
+    color: #2f2f2f;
+    border: 1px solid #c0b9a4; /* archival edge */
     padding: 0.4rem 0.8rem;
     border-radius: 4px;
+    font-family: Georgia, serif;
     font-size: 0.9rem;
-    text-decoration: none;
-    color: #2f2f2f;
-    transition: background 0.2s ease;
     cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
     z-index: 1000;
   }
 
   .lang-switch:hover {
-    background: #f2eee6;
+    background-color: #dcd4b7; /* warm, aged highlight */
+    color: #3f3f3f;
+    border-color: #a67c00;
   }
+
 
   header {
     text-align: center;
     padding: 5rem 1rem 3rem;
-    background: #ddd url('https://images.unsplash.com/photo-1603034911263-31be7f4aa5d9?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
     color: #fff;
     position: relative;
   }
@@ -48,25 +51,35 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(253, 246, 227, 0.75); /* parchment overlay */
   z-index: 0;
 }
 
 .header-content {
-  position: relative;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
 }
-.contact {
-  background: rgba(253, 246, 227, 0.5) !important; /* parchment overlay */
 
+.header-left {
+  flex-shrink: 0;
+  margin-top: 50px;
+  margin-right: 30px;
 }
+
+.header-right {
+  max-width: 500px;
+  text-align: left;
+}
+
 
   .profile-pic {
     width: 160px;
     height: 240px;
     border-radius: 5%;
     object-fit: cover;
-    border: 4px solid #fff;
+    border: 4px solid #654c4f;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
   }
@@ -74,7 +87,7 @@
   header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: #2f2f2f;
+    color: #654c4f;
   }
 
   header p {
@@ -82,11 +95,11 @@
     font-style: italic;
     max-width: 600px;
     margin: 0 auto;
-    color: #2f2f2f;
+    color: #654c4f;
   }
 
   .keywords {
-    color: #708238 !important;
+    color: #558B6E !important;
   }
 
   section {
@@ -119,7 +132,6 @@
   }
 
   .contact {
-    background-color: #f2eee6;
     padding: 2rem 1rem;
     text-align: center;
   }
@@ -128,7 +140,6 @@
     color: #2f2f2f;
     text-decoration: none;
     font-weight: bold;
-    border: 1px solid #2f2f2f;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     display: inline-block;
@@ -140,6 +151,13 @@
     background-color: #a67c00;
     color: white;
   }
+
+  .contact h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  color: #654c4f;
+}
+
 
   footer {
   text-align: center;
@@ -196,6 +214,66 @@
     color: #2f2f2f;
   }
 
+  /* Featured articles box - default styles for large screens */
+  .featured-section {
+    background-color: #fffbe8;
+    border: 3px solid #654c4f;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 2rem auto; /* Centered on large screens */
+  }
+
+  /* Enhanced heading style */
+  .featured-section h2 {
+    position: relative;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #558B6E;
+  }
+
+  .featured-section h2::before {
+    color: #558B6E;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+
+  /* Article list grid layout */
+  .featured-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+  }
+
+  /* Article items */
+  .featured-section li {
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .featured-section li:hover {
+    background-color: #fdf1cd;
+    transform: translateX(5px);
+  }
+
+  /* Article links */
+  .featured-section a {
+    color: #558B6E;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .featured-section a:hover {
+    color: #558B6E;
+    text-decoration: none;
+  }
+
   /* Responsive styles */
   @media (max-width: 600px) {
     header h1 {
@@ -207,8 +285,8 @@
     }
 
     .profile-pic {
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 200px;
     }
 
     .lang-switch {
@@ -217,74 +295,17 @@
       font-size: 0.8rem;
       padding: 0.3rem 0.6rem;
     }
-  }
 
-  /* Valitud artiklid wrapper */
-  .featured-section {
-    background-color: #fffbe8;
-    border: 1px solid #e0d8c4;
-    padding: 2rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-
-  /* Enhanced heading */
-  .featured-section h2 {
-    position: relative;
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
-    color: #2f2f2f;
-  }
-
-  .featured-section h2::before {
-    color: #a67c00;
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-  }
-
-
-  .featured-section ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem 2rem;
-}
-
-@media (max-width: 600px) {
-  .featured-section ul {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-  .featured-section li {
-    margin-bottom: 1rem;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    padding: 0.5rem 0.5rem;
-    border-radius: 4px;
-  }
-
-  .featured-section li:hover {
-    background-color: #fdf1cd;
-    transform: translateX(5px);
-  }
-
-  .featured-section a {
-    color: #708238;
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-  .featured-section a:hover {
-    color: #a67c00;
-    text-decoration: none;
-  }
-
-
-
+    /* Featured section mobile margin & layout fix */
+    .featured-section {
+      margin-left: 5%;
+      margin-right: 5%;
     }
+
+    .featured-section ul {
+      grid-template-columns: 1fr;
+    }
+  }
   </style>
 </head>
 <body>
@@ -293,163 +314,96 @@
 
 <header>
   <div class="header-content">
-    <img class="profile-pic" src="paavo.jpg" alt="Paavo Annuse portree" />
-    <h1>Paavo Annus</h1>
-    <p id="header-et" class="lang active">Üle 25 aasta kogemust helisalvestiste </p>
-    <p id="header-et" class="lang active"> kogumise, säilitamise ja uurimise alal</p>
-
-    <div id="keywords-et" class="lang active keywords" style="margin-top: 0.5rem; font-size: 0.95rem;">
-      <em>Teadustöö • Arhiivindus • Helisalvestised</em>
+    <div class="header-left">
+      <img class="profile-pic" src="paavo.jpg" alt="Paavo Annuse portree" />
     </div>
-    <p id="header-en" class="lang">25+ years of experience</p>
-    <p id="header-en" class="lang">in researching archival sound recordings</p>
+    <div class="header-right">
+      <h1>Paavo Annus</h1>
 
-    <div id="keywords-en" class="lang active keywords" style="margin-top: 0.5rem; font-size: 0.95rem;">
-      <em>Research • Archival science • Sound recordings</em>
+      <p class="lang lang-et active">
+        Üle 25 aasta kogemust<br>
+        helisalvestiste kogumise, säilitamise ja uurimise alal
+      </p>
+      <p class="lang lang-en">
+        25+ years of experience<br>
+        in researching archival sound recordings
+      </p>
+
+      <div class="keywords lang lang-et active" style="margin-top: 0.5rem; font-size: 0.95rem;">
+        <em>Teadustöö • Arhiivindus • Helisalvestised</em>
+      </div>
+      <div class="keywords lang lang-en" style="margin-top: 0.5rem; font-size: 0.95rem;">
+        <em>Research • Archival science • Sound recordings</em>
+      </div>
     </div>
-
   </div>
 </header>
 
 
-<!-- Estonian Content -->
-<div id="content-et" class="lang active">
-
+<!-- Estonian Articles Section -->
+<div class="lang lang-et active">
   <section class="featured-section">
     <h2>Valitud artiklid</h2>
     <ul>
-      <li>
-        <a href="https://www.err.ee/825511/video-eesti-humni-vinuulplaat-esmakordselt-avalikkuse-ees" target="_blank" rel="noopener noreferrer">
-          Eesti hümni vinüülplaat esmakordselt avalikkuse ees ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://epl.delfi.ee/artikkel/73575971/haruldased-kaadrid-konstantin-patsist" target="_blank" rel="noopener noreferrer">
-          Konstantin Pätsi viimane avalik kõne 21. juunil 1940 ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://tuna.ra.ee/wp-content/uploads/tuna-3-2019-annus-arhivaar-maie-barrow-1.pdf" target="_blank" rel="noopener noreferrer">
-          Austraalia eestlased ja eestlaste arhiivist Sydneys ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://dspace.ut.ee/items/1142800b-07c4-4968-9686-3092a768ec7f" target="_blank" rel="noopener noreferrer">
-          Luterliku kiriku vaimulikud Eestis 19. sajandi algusest kuni 1944 ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/riigipoore-isehakanud-voim-sojaseisukord-noukogude-liidus-baltikum-infosulus-erakorraline-olukord-ja-erakordne-silmakirjalikkus/" target="_blank" rel="noopener noreferrer">
-          “Riigipööre, isehakanud võim, sõjaseisukord Nõukogude Liidus, Baltikum infosulus, erakorraline olukord ja erakordne silmakirjalikkus” ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/rahvusarhiiv-sailitab-unesco-austraalia-maailmaparandi-registrisse-kantud-austraalia-eestlaste-malestusi/" target="_blank" rel="noopener noreferrer">
-          Rahvusarhiiv säilitab UNESCO Austraalia Maailmapärandi registrisse kantud Austraalia eestlaste mälestusi ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/rahvusringhaaling-90-kas-viimane-vabade-kunstide-seas/" target="_blank" rel="noopener noreferrer">
-          Kas viimane vabade kunstide seas? Rahvusringhääling 90. ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/140-aastat-jaan-lattiku-sunnist/" target="_blank" rel="noopener noreferrer">
-          140 aastat Jaan Lattiku sünnist ↗
-        </a>
-      </li>
+      <li><a href="https://www.err.ee/825511/video-eesti-humni-vinuulplaat-esmakordselt-avalikkuse-ees" target="_blank">Eesti hümni vinüülplaat esmakordselt avalikkuse ees ↗</a></li>
+      <li><a href="https://epl.delfi.ee/artikkel/73575971/haruldased-kaadrid-konstantin-patsist" target="_blank">Konstantin Pätsi viimane avalik kõne 21. juunil 1940 ↗</a></li>
+      <li><a href="https://tuna.ra.ee/wp-content/uploads/tuna-3-2019-annus-arhivaar-maie-barrow-1.pdf" target="_blank">Austraalia eestlased ja eestlaste arhiivist Sydneys ↗</a></li>
+      <li><a href="https://dspace.ut.ee/items/1142800b-07c4-4968-9686-3092a768ec7f" target="_blank">Luterliku kiriku vaimulikud Eestis 19. sajandi algusest kuni 1944 ↗</a></li>
+      <li><a href="https://blog.ra.ee/riigipoore-isehakanud-voim-sojaseisukord-noukogude-liidus-baltikum-infosulus-erakorraline-olukord-ja-erakordne-silmakirjalikkus/" target="_blank">Riigipööre, isehakanud võim, sõjaseisukord Nõukogude Liidus, Baltikum infosulus, erakorraline olukord ja erakordne silmakirjalikkus ↗</a></li>
+      <li><a href="https://blog.ra.ee/rahvusarhiiv-sailitab-unesco-austraalia-maailmaparandi-registrisse-kantud-austraalia-eestlaste-malestusi/" target="_blank">Rahvusarhiiv säilitab Austraalia eestlaste mälestusi ↗</a></li>
+      <li><a href="https://blog.ra.ee/rahvusringhaaling-90-kas-viimane-vabade-kunstide-seas/" target="_blank">Kas viimane vabade kunstide seas? Rahvusringhääling 90. ↗</a></li>
+      <li><a href="https://blog.ra.ee/140-aastat-jaan-lattiku-sunnist/" target="_blank">140 aastat Jaan Lattiku sünnist ↗</a></li>
     </ul>
-  </section>
-
-  <section class="contact">
-    <h2>Kontakt</h2>
-    <a href="mailto:paavo.annus@hotmail.com">Saada e-kiri</a>
   </section>
 </div>
 
-<!-- English Content -->
-<!-- English Content -->
-<div id="content-en" class="lang">
-  <section>
-  </section>
-
+<!-- English Articles Section -->
+<div class="lang lang-en">
   <section class="featured-section">
-    <h2>Selected Articles</h2>
+    <h2>Selected Articles (in Estonian)</h2>
     <ul>
-      <li>
-        <a href="https://www.err.ee/825511/video-eesti-humni-vinuulplaat-esmakordselt-avalikkuse-ees" target="_blank" rel="noopener noreferrer">
-          The Estonian national anthem on vinyl revealed to the public for the first time ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://epl.delfi.ee/artikkel/73575971/haruldased-kaadrid-konstantin-patsist" target="_blank" rel="noopener noreferrer">
-          Konstantin Päts' last public speech on June 21, 1940 ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://tuna.ra.ee/wp-content/uploads/tuna-3-2019-annus-arhivaar-maie-barrow-1.pdf" target="_blank" rel="noopener noreferrer">
-          Estonians in Australia and the Estonian Archives in Sydney ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://dspace.ut.ee/items/1142800b-07c4-4968-9686-3092a768ec7f" target="_blank" rel="noopener noreferrer">
-          Clergy of the Lutheran Church in Estonia from the early 19th century to 1944 ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/riigipoore-isehakanud-voim-sojaseisukord-noukogude-liidus-baltikum-infosulus-erakorraline-olukord-ja-erakordne-silmakirjalikkus/" target="_blank" rel="noopener noreferrer">
-          "Coup d'état, self-appointed power, martial law in the Soviet Union, the Baltic States in an information blackout, emergency situation and exceptional hypocrisy" ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/rahvusarhiiv-sailitab-unesco-austraalia-maailmaparandi-registrisse-kantud-austraalia-eestlaste-malestusi/" target="_blank" rel="noopener noreferrer">
-          The National Archives preserves memories of Estonians in Australia listed in UNESCO's Australian World Heritage Register ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/rahvusringhaaling-90-kas-viimane-vabade-kunstide-seas/" target="_blank" rel="noopener noreferrer">
-          The last among the liberal arts? Estonian Public Broadcasting at 90 ↗
-        </a>
-      </li>
-      <li>
-        <a href="https://blog.ra.ee/140-aastat-jaan-lattiku-sunnist/" target="_blank" rel="noopener noreferrer">
-          140 years since the birth of Jaan Lattik ↗
-        </a>
-      </li>
+      <li><a href="https://www.err.ee/825511/video-eesti-humni-vinuulplaat-esmakordselt-avalikkuse-ees" target="_blank">The Estonian National Anthem on Vinyl Revealed to the Public for the First Time ↗</a></li>
+      <li><a href="https://epl.delfi.ee/artikkel/73575971/haruldased-kaadrid-konstantin-patsist" target="_blank">Former Estonian President Konstantin Päts' Last Public Speech on June 21, 1940 ↗</a></li>
+      <li><a href="https://tuna.ra.ee/wp-content/uploads/tuna-3-2019-annus-arhivaar-maie-barrow-1.pdf" target="_blank">Estonians in Australia and the Estonian Archives in Sydney ↗</a></li>
+      <li><a href="https://dspace.ut.ee/items/1142800b-07c4-4968-9686-3092a768ec7f" target="_blank">Clergy of the Lutheran Church in Estonia from the Early 19th Century to 1944 ↗</a></li>
+      <li><a href="https://blog.ra.ee/riigipoore-isehakanud-voim-sojaseisukord-noukogude-liidus-baltikum-infosulus-erakorraline-olukord-ja-erakordne-silmakirjalikkus/" target="_blank">Coup d’état, self-proclaimed power, martial law in the Soviet Union, the Baltics in information blackout, and an extraordinary situation with extraordinary hypocrisy ↗</a></li>
+      <li><a href="https://blog.ra.ee/rahvusarhiiv-sailitab-unesco-austraalia-maailmaparandi-registrisse-kantud-austraalia-eestlaste-malestusi/" target="_blank">The National Archives preserving Estonian-Australian memories ↗</a></li>
+      <li><a href="https://blog.ra.ee/rahvusringhaaling-90-kas-viimane-vabade-kunstide-seas/" target="_blank">The Last of the Liberal Arts? Estonian Public Broadcasting turns 90 ↗</a></li>
+      <li><a href="https://blog.ra.ee/140-aastat-jaan-lattiku-sunnist/" target="_blank">140 Years Since the Birth of Jaan Lattik ↗</a></li>
     </ul>
-  </section>
-
-  <section class="contact">
-    <h2>Contact</h2>
-    <a href="mailto:paavo.annus@hotmail.com">Send an Email</a>
   </section>
 </div>
 
-<footer style="opacity: 0.5">
-  &copy; Paavo Annus. Kõik õigused kaitstud.
+<!-- Contact Section (shared layout, language controlled with class) -->
+<section class="contact">
+  <h2 class="lang lang-et active">Kontakt</h2>
+  <h2 class="lang lang-en">Get in touch</h2>
+
+  <p style="color: #654c4f">paavo.annus [at] hotmail.com</p>
+</section>
+
+<footer style="opacity: 0.8; color: #558B6E">
+  <p class="lang lang-et active">&copy; Paavo Annus. Kõik õigused kaitstud.</p>
+  <p class="lang lang-en">&copy; Paavo Annus. All rights reserved.</p>
+
 </footer>
 
 <script>
   let currentLang = 'et';
+
   function toggleLanguage() {
-    const etHeader = document.getElementById('header-et');
-    const enHeader = document.getElementById('header-en');
-    const etContent = document.getElementById('content-et');
-    const enContent = document.getElementById('content-en');
+    const etElements = document.querySelectorAll('.lang-et');
+    const enElements = document.querySelectorAll('.lang-en');
     const button = document.getElementById('langBtn');
 
     if (currentLang === 'et') {
-      etHeader.classList.remove('active');
-      etContent.classList.remove('active');
-      enHeader.classList.add('active');
-      enContent.classList.add('active');
+      etElements.forEach(el => el.classList.remove('active'));
+      enElements.forEach(el => el.classList.add('active'));
       button.textContent = 'Eesti keeles';
       currentLang = 'en';
     } else {
-      enHeader.classList.remove('active');
-      enContent.classList.remove('active');
-      etHeader.classList.add('active');
-      etContent.classList.add('active');
+      enElements.forEach(el => el.classList.remove('active'));
+      etElements.forEach(el => el.classList.add('active'));
       button.textContent = 'English';
       currentLang = 'et';
     }
